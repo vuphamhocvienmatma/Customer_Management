@@ -9,7 +9,7 @@ namespace Customer_Management.Controllers
 {
     public class TypeOfCustomerController : Controller
     {
-        public ActionResult ListOfCustomerType(string tuKhoa, int? TypeOfCustomer)
+        public ActionResult ListOfCustomerType()
         {
             List<TypeOfCustomer> lstCustomer = DataProvider.Entities.typeofcustomer.ToList();
             return View(lstCustomer);
@@ -57,6 +57,44 @@ namespace Customer_Management.Controllers
                 DataProvider.Entities.SaveChanges();
             }
             return RedirectToAction("ListOfCustomerType");
+        }
+
+        public ActionResult UpdateCustomerType(int Id)
+        {
+            //Hiển thị loại khách hàng
+
+            Customer objcustomerType = DataProvider.Entities.customers.Where(c => c.Id == Id).Single<Customer>();
+
+            return View(objcustomerType);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult UpdateCustomerType(int Id, Customer objCustomer, HttpPostedFileBase fUpload)
+        {
+            var objOld_Customer = DataProvider.Entities.customers.Find(Id);
+            string img_Name = "";
+            //Xử lý upload file
+            if (fUpload != null &&
+                fUpload.ContentLength > 0)
+            {
+                //Upload
+                fUpload.SaveAs(Server.MapPath("~/Content/img/" + fUpload.FileName));
+                //Lưu vào db
+                objCustomer.PictureId = fUpload.FileName;
+                img_Name = fUpload.FileName;
+            }
+            if (objOld_Customer != null)
+            {
+                if (string.IsNullOrEmpty(img_Name))
+                {
+                    objCustomer.PictureId = objOld_Customer.PictureId;
+                }
+                DataProvider.Entities.Entry(objOld_Customer).CurrentValues.SetValues(objCustomer);
+                //Lưu thay đổi
+                DataProvider.Entities.SaveChanges();
+            }
+            return RedirectToAction("ListOfCustomer");
         }
     }
 }

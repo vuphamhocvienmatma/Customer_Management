@@ -13,7 +13,7 @@
 </head>
 <body>
     <p>
-        @Html.ActionLink("Create New", "Create")
+        @Html.ActionLink("Tạo mới", "AddCustomerType")
     </p>
     <table class="table table-striped table-bordered" style="text-align:center">
         <tr>
@@ -45,7 +45,7 @@
                 </td>
                 <td>
                     @Html.ActionLink("Sửa thông tin", "Edit", new { Id = item.IdOftype }) |
-                    @Html.ActionLink("Xóa thông tin", "Delete", new { Id = item.IdOftype })
+                    @Html.ActionLink("Xóa thông tin", "DeleteCustomerType", new { Id = item.IdOftype })
                 </td>
             </tr>
         }

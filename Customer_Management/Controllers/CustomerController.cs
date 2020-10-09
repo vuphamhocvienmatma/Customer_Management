@@ -125,7 +125,7 @@ namespace Customer_Management.Controllers
         /// <summary>
         /// Hàm xóa khách hàng
         /// </summary>
-        /// <param name="idKhachHang"></param>
+        /// <param name="Id"></param>
         /// <returns></returns>
         public ActionResult DeleteCustomer(int Id)
         {
