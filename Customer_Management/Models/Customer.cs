@@ -24,6 +24,7 @@ namespace Customer_Management.Models
         [Required(ErrorMessage = "Yêu cầu nhập ngày sinh khách hàng")]
         [Column(TypeName = "DATETIME")]
         [Display(Name = "Ngày sinh")]
+        [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:dd/MMM/yyyy}")]
         public DateTime DOB { get; set; }
 
         [Display(Name = "Số điện thoại")]

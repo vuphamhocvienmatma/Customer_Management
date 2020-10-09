@@ -13,7 +13,7 @@ namespace Customer_Management.Controllers
         /// Hàm hiển thị danh sách khách hàng
         /// </summary>
         /// <returns></returns>
-        public ActionResult ListOfCustomer(string? tuKhoa, int? TypeOfCustomer)
+        public ActionResult ListOfCustomer(string tuKhoa, int? TypeOfCustomer)
         {
             ListOfCustomerType();
 
