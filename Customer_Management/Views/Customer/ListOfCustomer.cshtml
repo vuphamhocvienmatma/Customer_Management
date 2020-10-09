@@ -4,7 +4,7 @@
     ViewBag.Title = "Danh sách khách hàng";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-@using (Html.BeginForm("DanhSach", "Sach", FormMethod.Post))
+@using (Html.BeginForm("ListOfCustomer", "Customer", FormMethod.Post))
 {
     <h2>Quản lý thông tin khách hàng</h2>
     <fieldset>
@@ -13,13 +13,14 @@
             <tr>
                 <td style="width:10%;">Từ khóa:</td>
                 <td style="width:30%;">
-                    @Html.TextBox("tuKhoa", null, new
-               { @class = "form-control" })
+                    @Html.TextBox("tuKhoa", null,
+                   new { @class = "form-control" })
                 </td>
                 <td style="width:10%;">Loại khách hàng:</td>
                 <td style="width:30%;">
                     @*Hiển thị danh sách loại khách hàng*@
-                    @Html.DropDownList("LoaiKhachHang", (SelectList)ViewBag.TypeOfCustomer, "---Loại khách hàng---", new { @class = "form-control" })
+                    @Html.DropDownList("TypeOfCustomer", (SelectList)ViewBag.TypeOfCustomer,
+                   "---Loại khách hàng---", new { @class = "form-control" })
                 </td>
                 <td>
                     <input type="submit" value="Tìm kiếm" class="btn btn-primary" style="margin: 7.5px 0; text-align:right" ; />

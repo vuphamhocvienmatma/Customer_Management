@@ -13,11 +13,23 @@ namespace Customer_Management.Controllers
         /// Hàm hiển thị danh sách khách hàng
         /// </summary>
         /// <returns></returns>
-        public ActionResult ListOfCustomer()
+        public ActionResult ListOfCustomer(string? tuKhoa, int? TypeOfCustomer)
         {
             ListOfCustomerType();
-            //Hiển thị danh sách khách hàng, chưa có chức năng tìm kiếm
-            List<Customer> lstCustomer = DataProvider.Entities.customers.ToList();
+
+            IQueryable<Customer> lstCustomer = DataProvider.Entities.customers;
+
+            //tìm kiếm theo từ khóa
+            if (!string.IsNullOrEmpty(tuKhoa))
+            {
+                lstCustomer = lstCustomer.Where(c => c.Name.Contains(tuKhoa) || c.Email.Contains(tuKhoa) || c.GioiTinh.Contains(tuKhoa));
+            }
+            //Tìm kiếm theo loại khách hàng
+            if (TypeOfCustomer.HasValue)
+            {
+                lstCustomer = lstCustomer.Where(b => b.TypeofCustomerId == TypeOfCustomer.Value);
+            }
+
             return View(lstCustomer);
         }
 
