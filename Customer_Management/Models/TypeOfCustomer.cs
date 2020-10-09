@@ -13,7 +13,14 @@ namespace Customer_Management.Models
         [Key]
         public int IdOftype { get; set; }
 
+        [Display(Name = "Ảnh đại diện")]
+        public string PictureId { get; set; }
+
+        [Display(Name = "Loại khách hàng")]
         public string Type { get; set; }
+
+        [Display(Name = "Chi tiết")]
+        public string Details { get; set; }
 
         public virtual ICollection<Customer> Customers { get; set; }
     }

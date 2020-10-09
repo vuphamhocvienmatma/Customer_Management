@@ -130,6 +130,7 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\CustomerController.cs" />
+    <Compile Include="Controllers\TypeOfCustomerController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -140,6 +141,10 @@
     <Compile Include="Migrations\202010090351306_PNV1.cs" />
     <Compile Include="Migrations\202010090351306_PNV1.designer.cs">
       <DependentUpon>202010090351306_PNV1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202010090752222_PNV2.cs" />
+    <Compile Include="Migrations\202010090752222_PNV2.designer.cs">
+      <DependentUpon>202010090752222_PNV2.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Customer.cs" />
@@ -157,8 +162,12 @@
     <Content Include="Content\img\nguyen-ngoc-anh.jpg" />
     <Content Include="Content\img\pham-nguyen-vu.jpg" />
     <Content Include="Content\img\thanh-ngan.jpg" />
+    <Content Include="Content\img\thuong.jpeg" />
+    <Content Include="Content\img\tiem-nang.jpg" />
     <Content Include="Content\img\tran-van-bao.jpg" />
     <Content Include="Content\img\tran-van-cao.jpg" />
+    <Content Include="Content\img\ua-thich.png" />
+    <Content Include="Content\img\VIP.png" />
     <Content Include="Content\themes\base\accordion.css" />
     <Content Include="Content\themes\base\all.css" />
     <Content Include="Content\themes\base\autocomplete.css" />
@@ -276,6 +285,8 @@
     <Content Include="Views\Shared\_CustomerLayout.cshtml" />
     <Content Include="Views\Shared\_Header.cshtml" />
     <Content Include="Views\Shared\_SideBar.cshtml" />
+    <Content Include="Views\TypeOfCustomer\ListOfCustomerType.cshtml" />
+    <Content Include="Views\TypeOfCustomer\AddCustomerType.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -299,6 +310,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202010090351306_PNV1.resx">
       <DependentUpon>202010090351306_PNV1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202010090752222_PNV2.resx">
+      <DependentUpon>202010090752222_PNV2.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
