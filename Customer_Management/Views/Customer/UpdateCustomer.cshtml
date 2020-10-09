@@ -2,28 +2,26 @@
 
 @{
     ViewBag.Title = "UpdateCustomer";
-    Layout = "~/Views/Shared/_Layout.cshtml";
+    Layout = "~/Views/Shared/_CustomerLayout.cshtml";
 }
 }
-@section Scripts {
+@*@section Scripts {
+        @Scripts.Render("~/bundles/jqueryui")
+        @Styles.Render("~/Content/cssjqryUi")
 
-    @Scripts.Render("~/bundles/jqueryui")
-    @Styles.Render("~/Content/cssjqryUi")
+        <script type="text/javascript">
 
-    <script type="text/javascript">
+            $(document).ready(function () {
+                $('input[type=datetime]').datepicker({
+                    dateFormat: "dd/M/yy",
+                    changeMonth: true,
+                    changeYear: true,
+                    yearRange: "-60:+0"
+                });
 
-        $(document).ready(function () {
-            $('input[type=datetime]').datepicker({
-                dateFormat: "dd/M/yy",
-                changeMonth: true,
-                changeYear: true,
-                yearRange: "-60:+0"
             });
-
-        });
-    </script>
-
-}
+        </script>
+    }*@
 <h2>Cập nhật thông tin khách hàng</h2>
 @using (Html.BeginForm("UpdateCustomer", "Customer", FormMethod.Post, new
 { encType = "multipart/form-data" }))
